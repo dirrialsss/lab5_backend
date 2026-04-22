@@ -1,0 +1,24 @@
+{{> header}}
+
+<form method="POST">
+    <label>ПІБ:</label>
+    <input type="text" name="surname" required>
+    <label>Посада:</label>
+    <input type="text" name="position" required placeholder="професор, доцент, старший викладач...">
+    <label>Ступінь:</label>
+    <select name="degree" required>
+        <option value="">-- Оберіть ступінь --</option>
+        <option value="доктор наук">Доктор наук</option>
+        <option value="кандидат наук">Кандидат наук</option>
+        <option value="доктор філософії">Доктор філософії</option>
+        <option value="без ступеня">Без ступеня</option>
+    </select>
+
+    <label>Номер аудиторії:</label>
+    <input type="text" name="roomNumber" required placeholder="наприклад: 301, 405-A">
+    <button type="submit">Зберегти викладача</button>
+</form>
+
+<a href="/" class="back-link">← На головну</a>
+
+{{> footer}}

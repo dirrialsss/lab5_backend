@@ -1,0 +1,266 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #434b6a 0%, #9eb3ee 100%);
+    min-height: 98vh;
+    padding: 40px 20px;
+}
+
+.container {
+    max-width: 1150px;
+    margin: 0 auto;
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+h1 {
+    color: #333;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    font-size: 30px;
+    border-left: 4px solid #15417a;
+    padding-left: 15px;
+}
+
+/* Навігація */
+nav {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+nav a {
+    text-decoration: none;
+    background: #487cbb;
+    color: white;
+    padding: 8px 20px;
+    border-radius: 14px;
+    transition: all 0.3s;
+    font-weight: 500;
+}
+
+nav a:hover {
+    background: #15417a;
+    transform: translateY(-2px);
+}
+
+hr {
+    border: none;
+    height: 1px;
+}
+
+/* Таблиці (головна) */
+.table-container {
+    overflow-x: auto;
+    border-radius: 10px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+    border: 1px solid #adadad;
+}
+
+th {
+    background: #a4addd;
+    color: white;
+    padding: 15px 20px;
+    text-align: left;
+    font-weight: 600;
+    font-size: 16px;
+}
+
+td {
+    padding: 12px 10px;
+    border-bottom: 1px solid #e0e0e0;
+    color: #333;
+}
+
+tr:hover {
+    background: #f8f9fa;
+}
+
+.name-column a {
+    color: #31459d;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.name-column a:hover {
+    color: #5a67d8;
+    text-decoration: underline;
+}
+
+.position-badge, .degree-cell {
+    font-size: 14px;
+    color: #4a5568;
+}
+
+.room-badge {
+    display: inline-block;
+    background: #e2e8f0;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-family: monospace;
+    font-weight: 600;
+}
+
+/* Кнопки дій */
+.btn-edit, .btn-delete, button[type="submit"] {
+    padding: 6px 12px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: all 0.3s;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.btn-edit {
+    background: #eed99a;
+    color: #333;
+    margin-right: 5px;
+}
+
+
+.btn-delete, button[type="submit"].btn-delete {
+    background: #d48a92;
+    color: white;
+}
+/* Форми */
+form {
+    padding: 10px;
+    border-radius: 10px;
+}
+form label {
+    display: block;
+    margin: 10px 0 5px;
+    font-weight: bold;
+    color: #555;
+}
+form input, form select, form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+form input:focus, form select:focus {
+    outline: none;
+    border-color: #487cbb;
+}
+
+button[type="submit"]:not(.btn-delete) {
+    background: #73a980;
+    color: white;
+    width: auto;
+    padding: 10px 20px;
+}
+/* Картка викладача */
+.page-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+    padding-bottom: 20px;
+    border-bottom: 3px solid #15417a;
+}
+
+.teacher-name {
+    font-size: 32px;
+    color: #2d3748;
+    font-weight: 700;
+}
+
+.return-btn {
+    display: inline-flex;
+    align-items: center;
+    padding: 10px 20px;
+    background: #6c757d;
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: 500;
+    font-size: 18px;
+}
+.return-btn::before {
+    content: "←";
+    margin-right: 8px;
+    font-size: 18px;
+}
+
+.courses-section {
+    margin-top: 30px;
+}
+
+.section-title {
+    font-size: 24px;
+    color: #2d3748;
+    margin-bottom: 20px;
+    padding-left: 15px;
+    border-left: 5px solid #487cbb;
+}
+
+.courses-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.courses-table th {
+    background: #70aac1;
+    color: white;
+    padding: 15px;
+    font-weight: 600;
+}
+
+.courses-table td {
+    padding: 12px 15px;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.course-name {
+    font-weight: 600;
+    color: #2d3748;
+}
+
+.course-hours {
+    text-align: center;
+    background: #e2e8f0;
+    padding: 5px 10px;
+    border-radius: 20px;
+    font-weight: 600;
+    display: inline-block;
+}
+
+/* Додаткові стилі */
+.degree-empty {
+    color: #a0aec0;
+    font-style: italic;
+}
+
+.back-link {
+    display: inline-block;
+    margin-top: 15px;
+    color: #487cbb;
+    text-decoration: none;
+}
+footer {
+    text-align: center;
+    padding-top: 20px;
+    color: #888;
+    font-size: 12px;
+}
+

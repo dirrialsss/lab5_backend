@@ -1,0 +1,53 @@
+{{> header}}
+
+<div class="card">
+    <h2>{{teacher.surname}}</h2>
+    <p><strong>Посада:</strong> {{teacher.position}}</p>
+    <p><strong>Ступінь:</strong> {{teacher.degree}}</p>
+    <p><strong>Аудиторія:</strong> {{teacher.roomNumber}}</p>
+    <p><strong>ID:</strong> {{teacher._id}}</p>
+    <p><strong>Створено:</strong> {{teacher.createdAt}}</p>
+</div>
+
+<div class="courses-section">
+    <h3>Курси, які читає викладач</h3>
+    
+    {{#if courses.length}}
+        <table>
+            <thead>
+                <tr>
+                    <th>Назва курсу</th>
+                    <th>Годин</th>
+                    <th>Дії</th>
+                </tr>
+            </thead>
+            <tbody>
+                {{#each courses}}
+                <tr>
+                    <td>{{this.name}}</td>
+                    <td>{{this.hours}}</td>
+                    <td>
+                        <form action="/delete-course/{{this._id}}" method="POST" style="display:inline">
+                            <button type="submit" class="btn-delete" onclick="return confirm('Видалити курс?')">Видалити</button>
+                        </form>
+                    </td>
+                </tr>
+                {{/each}}
+            </tbody>
+        </table>
+    {{else}}
+        <p>Цей викладач ще не читає жодного курсу.</p>
+    {{/if}}
+</div>
+
+<div class="add-course">
+    <h3>Додати курс</h3>
+    <form action="/add-course/{{teacher._id}}" method="POST">
+        <input type="text" name="courseName" placeholder="Назва курсу" required>
+        <input type="number" name="hours" placeholder="Кількість годин" required>
+        <button type="submit">Додати курс</button>
+    </form>
+</div>
+<a href="/" class="back-link">← На головну</a>
+
+{{> footer}}

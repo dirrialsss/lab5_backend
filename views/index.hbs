@@ -1,0 +1,37 @@
+{{> header}}
+
+{{#if teachers.length}}
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Прізвище</th>
+                <th>Посада</th>
+                <th>Ступінь</th>
+                <th>Аудиторія</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            {{#each teachers}}
+            <tr>
+                <td>{{this._id}}</td>
+                <td><a href="/teacher/{{this._id}}">{{this.surname}}</a></td>
+                <td>{{this.position}}</td>
+                <td>{{this.degree}}</td>
+                <td>{{this.roomNumber}}</td>
+                <td>
+                    <a href="/edit/{{this._id}}" class="btn-edit">Редагувати</a>
+                    <form action="/delete/{{this._id}}" method="POST" style="display:inline">
+                        <button type="submit" class="btn-delete" onclick="return confirm('Видалити викладача та всі його курси?')">Видалити</button>
+                    </form>
+                </td>
+            </tr>
+            {{/each}}
+        </tbody>
+    </table>
+{{else}}
+    <p>Немає викладачів. <a href="/add">Додайте першого!</a></p>
+{{/if}}
+
+{{> footer}}

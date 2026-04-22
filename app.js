@@ -1,0 +1,33 @@
+const express = require('express');
+const mongoose = require('mongoose');
+const hbs = require('hbs');
+const path = require('path');
+
+const app = express();
+const PORT = 3000;
+
+// ===== ПІДКЛЮЧЕННЯ ДО MONGODB ATLAS =====
+// ВСТАВ СЮДИ СВІЙ РЯДОК З MONGODB!
+const MONGODB_URI = 'mongodb://siukalods_db_user:qnXfEn5lpkKebjqD@ac-haw00pw-shard-00-00.r1hs7l5.mongodb.net:27017,ac-haw00pw-shard-00-01.r1hs7l5.mongodb.net:27017,ac-haw00pw-shard-00-02.r1hs7l5.mongodb.net:27017/?ssl=true&replicaSet=atlas-95nzlf-shard-0&authSource=admin&appName=Cluster0';
+
+mongoose.connect(MONGODB_URI)
+    .then(() => console.log('✅ Підключено до MongoDB Atlas!'))
+    .catch(err => console.log('❌ Помилка підключення:', err));
+
+// ===== НАЛАШТУВАННЯ ШАБЛОНІВ =====
+app.set('view engine', 'hbs');
+app.set('views', path.join(__dirname, 'views'));
+hbs.registerPartials(path.join(__dirname, 'views/partials'));
+
+// ===== MIDDLEWARE =====
+app.use(express.urlencoded({ extended: true }));  // для отримання даних з форм
+app.use(express.static(path.join(__dirname, 'public')));  // для CSS
+
+// ===== ПІДКЛЮЧЕННЯ МАРШРУТІВ =====
+const teacherRoutes = require('./routes/teachers');
+app.use('/', teacherRoutes);
+
+// ===== ЗАПУСК СЕРВЕРА =====
+app.listen(PORT, () => {
+    console.log(`🚀 Сервер запущено: http://localhost:${PORT}`);
+});
