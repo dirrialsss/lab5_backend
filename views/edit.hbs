@@ -1,13 +1,13 @@
 {{> header}}
 
 <form method="POST">
-    <label>📛 Прізвище:</label>
+    <label>Прізвище:</label>
     <input type="text" name="surname" value="{{teacher.surname}}" required>
 
-    <label>💼 Посада:</label>
+    <label>Посада:</label>
     <input type="text" name="position" value="{{teacher.position}}" required>
 
-    <label>🎓 Ступінь:</label>
+    <label>Ступінь:</label>
     <select name="degree" required>
         <option value="доктор наук" {{#if (eq teacher.degree "доктор наук")}}selected{{/if}}>доктор наук</option>
         <option value="кандидат наук" {{#if (eq teacher.degree "кандидат наук")}}selected{{/if}}>кандидат наук</option>
